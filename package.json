@@ -1,0 +1,46 @@
+{
+  "name": "sass-babel-with-gulp-nscc",
+  "version": "1.0.0",
+  "description": "Starter template for an ES2015 app implementing Sass/Babel and Gulp",
+  "main": "app.js",
+  "author": "Sean Morrow / NSCC Truro Campus",
+  "license": "",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "spin.js": "^4.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "merge-stream": "^1.0.0",
+    "babelify": "^7.3.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "browserify": "^12.0.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "gulp-webserver": "^0.9.1"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "env"
+          ]
+        }
+      ]
+    ]
+  },
+  "jshintConfig": {
+    "esversion": 6,
+    "strict": "implied",
+    "browser": true,
+    "devel": true,
+    "node": true,
+    "globals": {}
+  }
+}

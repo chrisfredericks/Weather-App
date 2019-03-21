@@ -1,0 +1,66 @@
+.view__selected {
+    @include display-flex();
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+}
+
+.view__radios {
+    font-size:$base-font-size * 1.25;
+    margin-bottom:15px;
+}
+
+.view__about {
+    display:none;
+    color:mix($background-color, $font-color);
+    font-size: $base-font-size;
+    max-width:710px;
+    margin-bottom:20px;
+}
+
+.content {
+
+    &__title {
+        @extend .header--title;
+        padding-bottom: 10px;
+        font-size:$base-font-size * 2;
+    }
+
+    &__description {
+        padding-bottom: 10px;
+        max-width:500px;
+    }
+
+    &__link {
+        color:$font-color;
+        text-decoration: none;
+        font-size:$base-font-size * 1.25;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__iconset {
+        padding-top: 10px;
+    }
+
+    &__icon {
+        border-radius:10px;
+        margin-right: 5px;
+    }
+
+    &__icon--shrink {
+        border-radius:5px;
+        width: 50px;
+    }
+
+    &--viewall {
+        @include display-flex();
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-bottom:20px;
+        & > div {
+            margin-right:10px;
+        }
+    }    
+}

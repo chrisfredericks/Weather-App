@@ -1,0 +1,55 @@
+<?xml version="1.0" ?> 
+<samples>
+    <sample id="2">
+        <name>ASP.NET Core Web App</name>
+        <description>
+        An example of my first web app developed using ASP.NET Core. ASP.NET Core is a cross-platform, high-performance, open-source framework for building modern, cloud-based, Internet-connected applications.
+        </description>
+        <url>https://docs.microsoft.com/en-us/aspnet/core/</url>
+        <images>
+            <image>image1.png</image>
+            <image>image2.png</image>
+            <image>image3.png</image>
+            <image>image4.png</image>
+        </images>
+    </sample>
+    <sample id="4">
+        <name>Flexbox Page Layout Examples</name>
+        <description>
+        The Flexbox Layout (Flexible Box) module (currently a W3C Last Call Working Draft) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex").
+        </description>
+        <url>https://css-tricks.com/snippets/css/a-guide-to-fle</url>
+        <images>
+            <image>image5.png</image>
+            <image>image6.png</image>
+            <image>image7.png</image>
+            <image>image8.png</image>
+        </images>
+    </sample>
+    <sample id="5">
+        <name>CSS Styling with Sass Examples</name>
+        <description>
+        Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
+        </description>
+        <url>http://sass-lang.com/</url>
+        <images>
+            <image>image9.png</image>
+            <image>image10.png</image>
+            <image>image11.png</image>
+            <image>image12.png</image>
+        </images>
+    </sample>
+    <sample id="7">
+        <name>Web Apps that implement Lodash</name>
+        <description>
+        A modern JavaScript utility library delivering modularity, performance and extras.
+        </description>
+        <url>https://lodash.com/</url>
+        <images>
+            <image>image13.png</image>
+            <image>image14.png</image>
+            <image>image15.png</image>
+            <image>image16.png</image>
+        </images>
+    </sample>
+</samples>

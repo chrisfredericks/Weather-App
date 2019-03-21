@@ -1,0 +1,41 @@
+.cities {
+  padding-right:20px;
+  padding-bottom:20px;
+  // background-color: blue;
+
+  &__menu {
+    font-family:$font-faces;
+    font-size:$base-font-size;
+    background-color: blue;
+    color: black;
+    border:2px solid blue;
+    display:inline-block;
+    vertical-align:middle;
+    padding:7px 2px 5px 10px;
+    height:60px;
+    width:200px;
+    border-radius: 5px;
+    background:transparent;
+    &:focus {
+      outline:0;
+    }
+    & option {
+      color: #000000;
+    }
+  }
+
+  #cities {
+    background-color: blue;
+    color: white;
+  }
+  // &__link {
+  //   display:block;
+  //   margin-top:8px;
+  //   color:$font-color;
+  //   text-decoration: none;
+  //   font-size:$base-font-size;
+  //   &:hover {
+  //       text-decoration: underline;
+  //   }
+  // }
+}

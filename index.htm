@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Current Weather Reporter</title>
+        <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+    </head>
+    <body>
+        <div class="loading-overlay">
+        </div>
+
+        <div class="main">
+            <div class="header">
+                <div class="header header--title">Current Weather Reporter</div>
+            </div>
+
+            <div class="view">                        
+                <div class="view__selected">
+                    <div class="cities">
+                        <select id="cities" class="cities__menu"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sampleTemplate" style="display:none">
+            <div class="content content--viewall">
+                <div>
+                    <img src="#" alt="Portfolio Sample" class="content__icon"/>
+                </div>
+                <div>
+                    <div class="content__title"></div>
+                    <div class="content__description"></div>
+                    <a href="#" class="content__link" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="build/build.js"></script>                
+    </body>
+</html>
