@@ -26,7 +26,7 @@ body {
 
 .header {
   grid-column: span 2;
-  font-size: 64px;
+  font-size: 48px;
   color: #8080c5; }
   .header--title, .content__title {
     font-family: "Arvo", sans-serif;
@@ -36,13 +36,12 @@ body {
     letter-spacing: 2px;
     padding-bottom: 8px; }
 
-.cities {
+.info__cities {
   padding-right: 20px;
   padding-bottom: 20px; }
-  .cities__menu {
+  .info__cities__menu {
     font-family: arial, verdana, sans-serif;
     font-size: 16px;
-    background-color: blue;
     color: black;
     border: 2px solid blue;
     display: inline-block;
@@ -52,34 +51,23 @@ body {
     width: 200px;
     border-radius: 5px;
     background: transparent; }
-    .cities__menu:focus {
+    .info__cities__menu:focus {
       outline: 0; }
-    .cities__menu option {
+    .info__cities__menu option {
       color: #000000; }
-  .cities #cities {
+  .info__cities #cities {
     background-color: blue;
-    color: white; }
+    color: white;
+    width: 350px; }
 
-.view__selected {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start; }
+.info__icon {
+  font-size: 96px; }
 
-.view__radios {
-  font-size: 20px;
-  margin-bottom: 15px; }
+.info__conditions {
+  font-size: 64px; }
 
-.view__about {
-  display: none;
-  color: #8080c5;
-  font-size: 16px;
-  max-width: 710px;
-  margin-bottom: 20px; }
+.info__city {
+  font-size: 32px; }
 
 .content__title {
   padding-bottom: 10px;

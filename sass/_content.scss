@@ -1,22 +1,22 @@
-.view__selected {
-    @include display-flex();
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:flex-start;
-}
+// .view__selected {
+//     @include display-flex();
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     justify-content:flex-start;
+// }
 
-.view__radios {
-    font-size:$base-font-size * 1.25;
-    margin-bottom:15px;
-}
+// .view__radios {
+//     font-size:$base-font-size * 1.25;
+//     margin-bottom:15px;
+// }
 
-.view__about {
-    display:none;
-    color:mix($background-color, $font-color);
-    font-size: $base-font-size;
-    max-width:710px;
-    margin-bottom:20px;
-}
+// .view__about {
+//     display:none;
+//     color:mix($background-color, $font-color);
+//     font-size: $base-font-size;
+//     max-width:710px;
+//     margin-bottom:20px;
+// }
 
 .content {
 

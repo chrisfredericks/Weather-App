@@ -4,9 +4,7 @@ import {getXMLData} from "./Toolkit.js";
 // --------------------------------------------------
 import $ from "jquery";
 
-// retrieve server sided script
-// let retrieveScript = "http://lessonspace.sean.nscctruro.ca/clientSideSamples/portfolioData.php";
-let retrieveScript = "cities.xml";
+let retrieveScript;
 // xmlHttpRequest object for carrying out AJAX
 let xmlhttp;
 let xmlObject;
@@ -15,12 +13,8 @@ let citiesCount = 0;
 
 // references to objects on page
 let cities;
-let txtName;
-let txtDescription;
-let lnkUrl;
-// let imgSample1,imgSample2,imgSample3,imgSample4;
-// let viewAll;
-// let viewSelected;
+let option;
+let listItem;
 let loadingOverlay;
 
 // construct Spinner object (spin.js) and add to loading-overlay <div> http://spin.js.org/
@@ -31,20 +25,13 @@ function populateMe() {
     // populate the dropdown menu
     for (let i = 0; i < citiesCount; i++) {
         // create element for dropdown
-        let option = document.createElement("option");
-        option.text = xmlObject.getElementsByTagName("name")[i].textContent;
-
-        // APPROACH II
-        // store data for each city in the listItem option itself since javascript does not have a clean way to search the XML tree for a target id="#" attribute
-        // option.id = xmlObject.getElementsByTagName("city")[i].getAttribute("id");
-        option.city = option.text;
-        option.province = xmlObject.getElementsByTagName("province")[i].textContent;
-        option.city += (", " + option.province);
-        console.log(option.city);
+        option = document.createElement("option");
+        let city = xmlObject.getElementsByTagName("name")[i].textContent;
+        let province = xmlObject.getElementsByTagName("province")[i].textContent;
+        option.text = city + ", " + province;
 
         // add element to cities as a new option
         cities.add(option, null);
-
     }
 
     cities.addEventListener("change", onChanged);
@@ -52,42 +39,50 @@ function populateMe() {
 
 // ------------------------------------------------------- event handlers
 function onLoaded(result) {  
-    // ---------------------------------------------- challenge solution
     // grab the XML response
     //xmlObject = xmlhttp.responseXML;
     xmlObject = result;
     // ------------------------------------------------------------------
 
-    citiesCount = xmlObject.getElementsByTagName("city").length;
-    if (citiesCount > 0) {
-        populateMe();
-        onChanged();
+    if (retrieveScript == "cities.xml") {
+        citiesCount = xmlObject.getElementsByTagName("city").length;
+        if (citiesCount > 0) {
+            populateMe();
+            onChanged();
+            loadingOverlay.style.display = "none";
+        }         
+    } else {
         loadingOverlay.style.display = "none";
-    }         
+        let conditions = xmlObject.getElementsByTagName("weather")[0].getAttribute("value");
+        console.log(xmlObject);
+        let code = xmlObject.getElementsByTagName("weather")[0].getAttribute("number");
+        document.getElementsByClassName("info__icon")[0].innerHTML = `<i class="wi wi-owm-${code}"></i>`;
+        document.getElementsByClassName("info__conditions")[0].innerHTML = conditions;
+        document.getElementsByClassName("info__city")[0].innerHTML = listItem.textContent;
+    }
 }
 
 function onError(e) {
     console.log("*** Error has occured during AJAX data retrieval");
+    document.getElementsByClassName("info__icon")[0].innerHTML = "";
+    document.getElementsByClassName("info__conditions")[0].innerHTML = "";
+    document.getElementsByClassName("info__city")[0].innerHTML = "City not found";
 }
 
 function onChanged(e) {
     // reference to option in cities
-    let listItem = cities.selectedOptions[0];
-    // updating interface
-    // txtName.innerHTML = listItem.name;
-    // txtDescription.innerHTML = listItem.description;
-    // lnkUrl.innerHTML = listItem.url;
-    // lnkUrl.href = listItem.url;
-    // lnkUrl.target = "_blank";
-    // imgSample1.src = "images/" + listItem.image1;
-    // imgSample2.src = "images/" + listItem.image2;
-    // imgSample3.src = "images/" + listItem.image3;
-    // imgSample4.src = "images/" + listItem.image4;
+    listItem = cities.selectedOptions[0];
+    let citySplit = listItem.textContent.split(",");
+    console.log(listItem.textContent);
+    console.log(citySplit[0]);
+    retrieveScript = `http://api.openweathermap.org/data/2.5/weather?q=${citySplit[0]},CA&mode=xml&appid=6761afb1468ce2fec9c0b3c67ee37aa2`;
+    getXMLData(retrieveScript, onLoaded, onError);
 }
 
 // ------------------------------------------------------- private methods
 function main() {
     // setup references to controls
+    retrieveScript = "cities.xml";
     cities = document.getElementById("cities");
     loadingOverlay = document.getElementsByClassName("loading-overlay")[0];
 

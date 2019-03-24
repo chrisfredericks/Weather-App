@@ -7,6 +7,8 @@
         <title>Current Weather Reporter</title>
         <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<link rel="stylesheet" type="text/css" href="css/weather-icons.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/weather-icons.wind.min.css" />
     </head>
     <body>
         <div class="loading-overlay">
@@ -17,11 +19,46 @@
                 <div class="header header--title">Current Weather Reporter</div>
             </div>
 
-            <div class="view">                        
-                <div class="view__selected">
-                    <div class="cities">
-                        <select id="cities" class="cities__menu"></select>
-                    </div>
+            <div class="info">                        
+                <div class="info__cities">
+                    <select id="cities" class="info__cities__menu"></select>
+                </div>
+                <div class="info__icon">
+                    
+                </div>
+                <div class="info__conditions">
+                    
+                </div>
+                <div class="info__city">
+
+                </div>
+            </div>
+
+            <div class="weather">
+                <div class="weather__sunriseSunset">
+                    <i class="wi wi-day-sunny"><b>&nbsp;&nbsp;Sunrise / Sunset</b></i>
+                    <div class="weather__sunriseSunset__sunrise"></div>
+                    <div class="weather__sunriseSunset__sunset"></div>
+                </div>
+                <div class="weather__temp">
+                    <i class="wi wi-thermometer"><b>&nbsp;&nbsp;Temperature</b></i>
+                    <div class="weather__temp__current"></div>
+                    <div class="weather__temp__low"></div>
+                    <div class="weather__temp__high"></div>
+                </div>
+                <div class="weather__humidity">
+                    <i class="wi wi-humidity"><b>&nbsp;&nbsp;Humidity</b></i>
+                    <div class="weather__humidity__value"></div>
+                </div>
+                <div class="weather__air_pressure">
+                    <i class="wi wi-barometer"><b>&nbsp;&nbsp;Air Pressure</b></i>
+                    <div class="weather__air_pressure__value"></div>
+                </div>
+                <div class="weather__wind">
+                    <div class="weather__wind__icon"></div>
+                    <div class="weather__wind__direction"></div>
+                    <div class="weather__wind__strength"></div>
+                    <div class="weather__wind__speed"></div>
                 </div>
             </div>
         </div>
