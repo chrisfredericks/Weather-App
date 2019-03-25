@@ -25,7 +25,7 @@ body {
   display: block; }
 
 .header {
-  grid-column: span 2;
+  grid-column: span 1;
   font-size: 48px;
   color: #8080c5; }
   .header--title, .content__title {
@@ -41,15 +41,14 @@ body {
   padding-bottom: 20px; }
   .info__cities__menu {
     font-family: arial, verdana, sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     color: black;
     border: 2px solid blue;
     display: inline-block;
     vertical-align: middle;
     padding: 7px 2px 5px 10px;
-    height: 60px;
-    width: 200px;
-    border-radius: 5px;
+    height: 70px;
+    border-radius: 10px;
     background: transparent; }
     .info__cities__menu:focus {
       outline: 0; }
@@ -67,7 +66,68 @@ body {
   font-size: 64px; }
 
 .info__city {
-  font-size: 32px; }
+  font-size: 48px;
+  font-weight: bold; }
+
+.weather {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  font-size: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start; }
+  .weather__sun {
+    width: 300px;
+    padding-top: 20px;
+    padding-right: 20px; }
+    .weather__sun__rise {
+      font-size: 24px;
+      padding-top: 10px; }
+    .weather__sun__set {
+      font-size: 24px;
+      padding-top: 10px; }
+  .weather__temp {
+    width: 225px;
+    padding-top: 20px;
+    padding-right: 20px; }
+    .weather__temp__current {
+      font-size: 24px;
+      padding-top: 10px; }
+    .weather__temp__low {
+      font-size: 24px;
+      padding-top: 10px; }
+    .weather__temp__high {
+      font-size: 24px;
+      padding-top: 10px; }
+  .weather__humidity {
+    width: 200px;
+    padding-top: 20px;
+    padding-right: 20px; }
+    .weather__humidity__value {
+      font-size: 24px;
+      padding-top: 10px; }
+  .weather__pressure {
+    width: 250px;
+    padding-top: 20px;
+    padding-right: 20px; }
+    .weather__pressure__value {
+      font-size: 24px;
+      padding-top: 10px; }
+  .weather__wind {
+    width: 300px;
+    padding-top: 20px;
+    padding-right: 20px; }
+    .weather__wind__icon {
+      font-weight: bold; }
+    .weather__wind__direction {
+      font-size: 24px;
+      padding-top: 10px; }
+    .weather__wind__strength {
+      font-size: 24px;
+      padding-top: 10px; }
+    .weather__wind__speed {
+      font-size: 24px;
+      padding-top: 10px; }
 
 .content__title {
   padding-bottom: 10px;

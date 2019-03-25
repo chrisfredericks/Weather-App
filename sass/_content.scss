@@ -1,3 +1,99 @@
+.weather {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    font-size: $base-font-size * 2;
+    display: flex;
+    // justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+
+    &__sun {
+        width: 300px;
+        padding-top: 20px;
+        padding-right: 20px;
+
+        &__rise {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+        
+        &__set {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+    }
+
+    &__temp {
+        width: 225px;
+        padding-top: 20px;
+        padding-right: 20px;
+            
+        &__current {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+            
+        &__low {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+            
+        &__high {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+    }
+
+    &__humidity {
+        width: 200px;
+        padding-top: 20px;
+        padding-right: 20px;
+                
+        &__value {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+    }
+
+    &__pressure {
+        width: 250px;
+        padding-top: 20px;
+        padding-right: 20px;
+
+        &__value {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+    }
+
+    &__wind {
+        width: 300px;
+        padding-top: 20px;
+        padding-right: 20px;
+
+        &__icon {
+            font-weight: bold;
+        }
+
+        &__direction {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+
+        &__strength {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+
+        &__speed {
+            font-size: $base-font-size * 1.5;
+            padding-top: 10px;
+        }
+    }
+}
+
+
+
 // .view__selected {
 //     @include display-flex();
 //     flex-direction: row;

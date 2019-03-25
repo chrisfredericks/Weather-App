@@ -1,4 +1,5 @@
 .info {
+  
    
   &__cities {
     padding-right:20px;
@@ -7,16 +8,16 @@
   
     &__menu {
       font-family:$font-faces;
-      font-size:$base-font-size;
+      font-size:$base-font-size * 1.25;
       // background-color: lightblue;
       color: black;
       border:2px solid blue;
       display:inline-block;
       vertical-align:middle;
       padding:7px 2px 5px 10px;
-      height:60px;
-      width:200px;
-      border-radius: 5px;
+      height:70px;
+      // width:200px;
+      border-radius: 10px;
       background:transparent;
       &:focus {
         outline:0;
@@ -42,7 +43,8 @@
   }
 
   &__city {
-    font-size: $base-font-size * 2;
+    font-size: $base-font-size * 3;
+    font-weight: bold;
   }
 }
 
