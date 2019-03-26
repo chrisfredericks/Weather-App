@@ -42,8 +42,7 @@ body {
   .info__cities__menu {
     font-family: arial, verdana, sans-serif;
     font-size: 20px;
-    color: black;
-    border: 2px solid blue;
+    box-shadow: 5px 5px #2f2fd4;
     display: inline-block;
     vertical-align: middle;
     padding: 7px 2px 5px 10px;
@@ -55,78 +54,108 @@ body {
     .info__cities__menu option {
       color: #000000; }
   .info__cities #cities {
-    background-color: blue;
+    background-color: #2f2fd4;
     color: white;
-    width: 350px; }
+    width: 450px; }
 
 .info__icon {
+  color: blue;
   font-size: 96px; }
 
 .info__conditions {
+  color: blue;
   font-size: 64px; }
 
 .info__city {
-  font-size: 48px;
+  color: black;
+  font-size: 40px;
   font-weight: bold; }
 
 .weather {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   font-size: 32px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start; }
   .weather__sun {
     width: 300px;
+    color: black;
     padding-top: 20px;
     padding-right: 20px; }
     .weather__sun__rise {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
     .weather__sun__set {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
   .weather__temp {
     width: 225px;
+    color: black;
     padding-top: 20px;
     padding-right: 20px; }
     .weather__temp__current {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
     .weather__temp__low {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
     .weather__temp__high {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
   .weather__humidity {
     width: 200px;
+    color: black;
     padding-top: 20px;
     padding-right: 20px; }
     .weather__humidity__value {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
   .weather__pressure {
     width: 250px;
+    color: black;
     padding-top: 20px;
     padding-right: 20px; }
     .weather__pressure__value {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
   .weather__wind {
     width: 300px;
+    color: black;
     padding-top: 20px;
     padding-right: 20px; }
-    .weather__wind__icon {
-      font-weight: bold; }
     .weather__wind__direction {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
     .weather__wind__strength {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
     .weather__wind__speed {
+      color: #8080c5;
       font-size: 24px;
+      font-weight: bolder;
       padding-top: 10px; }
 
 .content__title {

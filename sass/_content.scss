@@ -1,92 +1,112 @@
 .weather {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-size: $base-font-size * 2;
-    display: flex;
-    // justify-content: space-around;
+    @include display-flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:flex-start;
 
     &__sun {
         width: 300px;
+        color: black;
         padding-top: 20px;
         padding-right: 20px;
 
         &__rise {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
         
         &__set {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
     }
 
     &__temp {
         width: 225px;
+        color: black;
         padding-top: 20px;
         padding-right: 20px;
             
         &__current {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
             
         &__low {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
             
         &__high {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
     }
 
     &__humidity {
         width: 200px;
+        color: black;
         padding-top: 20px;
         padding-right: 20px;
                 
         &__value {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
     }
 
     &__pressure {
         width: 250px;
+        color: black;
         padding-top: 20px;
         padding-right: 20px;
 
         &__value {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
     }
 
     &__wind {
         width: 300px;
+        color: black;
         padding-top: 20px;
         padding-right: 20px;
 
-        &__icon {
-            font-weight: bold;
-        }
-
         &__direction {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
 
         &__strength {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
 
         &__speed {
+            color: mix($background-color, $font-color);
             font-size: $base-font-size * 1.5;
+            font-weight: bolder;
             padding-top: 10px;
         }
     }

@@ -30,6 +30,9 @@ let windDirection;
 let windStrength;
 let windSpeed;
 
+// let hours;
+// let minutes;
+
 // construct Spinner object (spin.js) and add to loading-overlay <div> http://spin.js.org/
 let spinner = new Spinner({ color: '#FFFFFF', lines: 12 }).spin(document.getElementsByClassName("loading-overlay")[0]);
 
@@ -67,30 +70,52 @@ function getWeatherData() {
 }
 
 function convertWeatherData() {
-    // sunrise = new Date(sunrise);
-    // console.log("Converted: " + sunrise);
+    sunrise = new Date(sunrise + "Z");
+    sunset = new Date(sunset + "Z");
+    let month = sunrise.getMonth() + 1;
+    if (month < 10) {
+        month = "0" + month;
+    }
+    let day = sunrise.getDate();
+    console.log(day);
+    if (day < 10) {
+        day = "0" + day;
+    }
+    let hours = sunrise.getHours();
+    let minutes = sunrise.getMinutes();
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+    let year = sunrise.getFullYear();
+    sunrise = month + "/" + day + "/" + year + "  " + hours + ":" + minutes;
+    month = sunset.getMonth() + 1;
+    if (month < 10) {
+        month = "0" + month;
+    }
+    day = sunset.getDate();
+    if (day < 10) {
+        day = "0" + day;
+    }
+    hours = sunset.getHours();
+    minutes = sunset.getMinutes();
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+    year = sunset.getFullYear();
+    sunset = month + "/" + day + "/" + year + "  " + hours + ":" + minutes;
     currentTemp -= 273.15;
     lowTemp -= 273.15;
     highTemp -= 273.15;
 }
-// ------------------------------------------------------- event handlers
-function onCityDataLoaded(result) {
-    // grab the XML response
-    xmlObject = result;
-    loadingOverlay.style.display = "none";
-    getWeatherData();
-    convertWeatherData();
-    console.log("Converted: " + Math.round(currentTemp));
-    // conditions = xmlObject.getElementsByTagName("weather")[0].getAttribute("value");
-    // sunrise = xmlObject.getElementsByTagName("sun")[0].getAttribute("rise");
-    // sunset = xmlObject.getElementsByTagName("sun")[0].getAttribute("set");
-    console.log(xmlObject);
+
+function displayData() {
+
     let code = xmlObject.getElementsByTagName("weather")[0].getAttribute("number");
     document.getElementsByClassName("info__icon")[0].innerHTML = `<i class="wi wi-owm-${code}"></i>`;
     document.getElementsByClassName("info__conditions")[0].innerHTML = conditions;
     document.getElementsByClassName("info__city")[0].innerHTML = listItem.textContent;
-    document.getElementsByClassName("weather__sun__rise")[0].innerHTML = `<i class="wi wi-sunrise">&nbsp;${sunrise}</i>`;
-    document.getElementsByClassName("weather__sun__set")[0].innerHTML = `<i class="wi wi-sunset">&nbsp;${sunset}</i>`;
+    document.getElementsByClassName("weather__sun__rise")[0].innerHTML = `<i class="wi wi-sunrise"></i>&nbsp;${sunrise}`;
+    document.getElementsByClassName("weather__sun__set")[0].innerHTML = `<i class="wi wi-sunset"></i>&nbsp;${sunset}`;
     document.getElementsByClassName("weather__temp__current")[0].innerHTML = `${Math.round(currentTemp)}<i class="wi wi-celsius"></i>&nbsp;&nbsp;Current`;
     document.getElementsByClassName("weather__temp__low")[0].innerHTML = `${Math.round(lowTemp)}<i class="wi wi-celsius"></i>&nbsp;&nbsp;Low`;
     document.getElementsByClassName("weather__temp__high")[0].innerHTML = `${Math.round(highTemp)}<i class="wi wi-celsius"></i>&nbsp;&nbsp;High`;
@@ -100,8 +125,17 @@ function onCityDataLoaded(result) {
     document.getElementsByClassName("weather__wind__direction")[0].innerHTML = `${windDirection} wind`;
     document.getElementsByClassName("weather__wind__strength")[0].innerHTML = windStrength;
     document.getElementsByClassName("weather__wind__speed")[0].innerHTML = `${windSpeed} km/h speed`;
-    console.log(pressure);
    
+}
+
+// ------------------------------------------------------- event handlers
+function onCityDataLoaded(result) {
+    // grab the XML response
+    xmlObject = result;
+    loadingOverlay.style.display = "none";
+    getWeatherData();
+    convertWeatherData();
+    displayData();
 }
 
 function onLoaded(result) {  
@@ -126,6 +160,9 @@ function onCityNotFound(e) {
     document.getElementsByClassName("weather__temp__high")[0].innerHTML = "";
     document.getElementsByClassName("weather__humidity__value")[0].innerHTML = "";
     document.getElementsByClassName("weather__pressure__value")[0].innerHTML = "";
+    document.getElementsByClassName("weather__wind__direction")[0].innerHTML = "";
+    document.getElementsByClassName("weather__wind__strength")[0].innerHTML = "";
+    document.getElementsByClassName("weather__wind__speed")[0].innerHTML = "";
 
     document.getElementsByClassName("info__city")[0].innerHTML = "City not found".fontcolor("red").italics();
 }

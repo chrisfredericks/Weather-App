@@ -4,6 +4,8 @@ $font-color:darkblue;
 $base-font-size:16px;
 $font-faces: arial,verdana,sans-serif;
 
+$phone: "screen and (max-width:640px)";
+
 @mixin display-flex() {
     display: -webkit-box;
     display: -moz-box;
