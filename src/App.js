@@ -72,7 +72,7 @@ function getWeatherData() {
     windDirection = xmlObject.getElementsByTagName("direction")[0].getAttribute("name");
     windSpeed = xmlObject.getElementsByTagName("speed")[0].getAttribute("value");
     windStrength = xmlObject.getElementsByTagName("speed")[0].getAttribute("name");
-    console.log(windDirectionCode.toLowerCase());
+    // console.log(windDirectionCode.toLowerCase());
 }
 
 function convertWeatherData() {
@@ -83,7 +83,7 @@ function convertWeatherData() {
         month = "0" + month;
     }
     let day = sunrise.getDate();
-    console.log(day);
+    // console.log(day);
     if (day < 10) {
         day = "0" + day;
     }
@@ -204,8 +204,8 @@ function onChanged(e) {
     // }
 
     let citySplit = listItem.textContent.split(",");
-    console.log(listItem.textContent);
-    console.log(citySplit[0]);
+    // console.log(listItem.textContent);
+    // console.log(citySplit[0]);
     retrieveScript = `http://api.openweathermap.org/data/2.5/weather?q=${citySplit[0]},CA&mode=xml&appid=6761afb1468ce2fec9c0b3c67ee37aa2`;
     // document.getElementsByClassName("weather__sun__rise")[0].innerHTML.fontcolor("rgb(183, 185, 214)");
 
@@ -226,6 +226,7 @@ function main() {
 
     if (lastCity != null) {
         listItem = cookieManager.retrieveCookie("lastCity");
+        console.log(listItem);
         retrieved = true;
     } else {
         retrieved = false;
