@@ -1,6 +1,7 @@
 .weather {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-size: $base-font-size * 2;
+    // display: block;
     @include display-flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -112,7 +113,17 @@
     }
 }
 
+@media #{$phone} {
 
+    .weather {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        font-size: $base-font-size * 2;
+        @include display-flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content:flex-start;
+    }
+}
 
 // .view__selected {
 //     @include display-flex();

@@ -32,8 +32,10 @@ body {
     font-family: "Arvo", sans-serif;
     font-weight: bold; }
   .header--subtitle {
-    font-size: 16px;
+    font-size: 24px;
+    color: black;
     letter-spacing: 2px;
+    padding-top: 8px;
     padding-bottom: 8px; }
 
 .info__cities {
@@ -157,6 +159,19 @@ body {
       font-size: 24px;
       font-weight: bolder;
       padding-top: 10px; }
+
+@media screen and (max-width: 640px) {
+  .weather {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    font-size: 32px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start; } }
 
 .content__title {
   padding-bottom: 10px;

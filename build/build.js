@@ -10321,6 +10321,8 @@ function onCityDataLoaded(result) {
     // grab the XML response
     xmlObject = result;
     loadingOverlay.style.display = "none";
+    document.getElementsByClassName("weather")[0].style.display = "flex";
+
     getWeatherData();
     convertWeatherData();
     displayData();
@@ -10339,20 +10341,20 @@ function onLoaded(result) {
 }
 
 function onCityNotFound(e) {
-    document.getElementsByClassName("info__icon")[0].innerHTML = "";
-    document.getElementsByClassName("info__conditions")[0].innerHTML = "";
-    document.getElementsByClassName("weather__sun__rise")[0].innerHTML = "";
-    document.getElementsByClassName("weather__sun__set")[0].innerHTML = "";
-    document.getElementsByClassName("weather__temp__current")[0].innerHTML = "";
-    document.getElementsByClassName("weather__temp__low")[0].innerHTML = "";
-    document.getElementsByClassName("weather__temp__high")[0].innerHTML = "";
-    document.getElementsByClassName("weather__humidity__value")[0].innerHTML = "";
-    document.getElementsByClassName("weather__pressure__value")[0].innerHTML = "";
-    document.getElementsByClassName("weather__wind__direction")[0].innerHTML = "";
-    document.getElementsByClassName("weather__wind__strength")[0].innerHTML = "";
-    document.getElementsByClassName("weather__wind__speed")[0].innerHTML = "";
-
     document.getElementsByClassName("info__city")[0].innerHTML = "City not found".fontcolor("red").italics();
+    document.getElementsByClassName("weather")[0].style.display = "none";
+    // document.getElementsByClassName("info__icon")[0].innerHTML = "";
+    // document.getElementsByClassName("info__conditions")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__sun__rise")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__sun__set")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__temp__current")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__temp__low")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__temp__high")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__humidity__value")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__pressure__value")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__wind__direction")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__wind__strength")[0].innerHTML = "";
+    // document.getElementsByClassName("weather__wind__speed")[0].innerHTML = "";
 }
 
 function onError(e) {
@@ -10362,10 +10364,13 @@ function onError(e) {
 function onChanged(e) {
     // reference to option in cities
     listItem = cities.selectedOptions[0];
+
     var citySplit = listItem.textContent.split(",");
     console.log(listItem.textContent);
     console.log(citySplit[0]);
     retrieveScript = "http://api.openweathermap.org/data/2.5/weather?q=" + citySplit[0] + ",CA&mode=xml&appid=6761afb1468ce2fec9c0b3c67ee37aa2";
+    document.getElementsByClassName("weather__sun__rise")[0].innerHTML.fontcolor("rgb(183, 185, 214)");
+
     (0, _Toolkit.getXMLData)(retrieveScript, onCityDataLoaded, onCityNotFound);
 }
 
