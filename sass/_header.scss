@@ -11,8 +11,10 @@
   }
 
   &--subtitle {
-    font-size:$base-font-size;
+    font-size:$base-font-size * 1.5;
+    color: black;
     letter-spacing:2px;
+    padding-top: 8px;
     padding-bottom:8px;
   }
 }
