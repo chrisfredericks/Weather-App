@@ -9,7 +9,7 @@ import {CookieManager} from "./CookieManager";
 // cookieManager object
 let cookieManager = null;
 let lastCity = null;
-let retrieved = false;
+let retrieved = 0;
 let retrieveScript;
 // xmlHttpRequest object for carrying out AJAX
 let xmlhttp;
@@ -119,7 +119,7 @@ function displayData() {
     let code = xmlObject.getElementsByTagName("weather")[0].getAttribute("number");
     document.getElementsByClassName("info__icon")[0].innerHTML = `<i class="wi wi-owm-${code}"></i>`;
     document.getElementsByClassName("info__conditions")[0].innerHTML = conditions;
-    document.getElementsByClassName("info__city")[0].innerHTML = listItem.textContent;
+    document.getElementsByClassName("info__city")[0].innerHTML = listItem;
     document.getElementsByClassName("weather__sun__rise")[0].innerHTML = `<i class="wi wi-sunrise"></i>&nbsp;${sunrise}`;
     document.getElementsByClassName("weather__sun__set")[0].innerHTML = `<i class="wi wi-sunset"></i>&nbsp;${sunset}`;
     document.getElementsByClassName("weather__temp__current")[0].innerHTML = `${Math.round(currentTemp)}<i class="wi wi-celsius"></i>&nbsp;&nbsp;Current`;
@@ -153,6 +153,12 @@ function onLoaded(result) {
     citiesCount = xmlObject.getElementsByTagName("city").length;
     if (citiesCount > 0) {
         populateMe();
+        // if (cookieManager.retrieveCookie("lastCity") === undefined) {
+        //     saveData();            
+        // } else {
+        //     lastCity = cookieManager.retrieveCookie("lastCity");
+        //     option.text = lastCity;
+        // }
         onChanged();
         loadingOverlay.style.display = "none";
     }
@@ -161,19 +167,6 @@ function onLoaded(result) {
 function onCityNotFound(e) {
     document.getElementsByClassName("info__city")[0].innerHTML = "City not found".fontcolor("red").italics();
     document.getElementsByClassName("weather")[0].style.display = "none";
-    // document.getElementsByClassName("info__icon")[0].innerHTML = "";
-    // document.getElementsByClassName("info__conditions")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__sun__rise")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__sun__set")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__temp__current")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__temp__low")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__temp__high")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__humidity__value")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__pressure__value")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__wind__direction")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__wind__strength")[0].innerHTML = "";
-    // document.getElementsByClassName("weather__wind__speed")[0].innerHTML = "";
-
 }
 
 function onError(e) {
@@ -181,33 +174,21 @@ function onError(e) {
 }
 
 function onChanged(e) {
-    // if (lastCity != null) {
-    //     listItem = cookieManager.retrieveCookie("lastCity");
-    // } else {
-    if (!retrieved) {
-        // reference to option in cities
-        listItem = cities.selectedOptions[0];
-        console.log(listItem);
-        lastCity = listItem;
-        saveData();
-    }
-    // get score data from cookie if it exists
-    // if (cookieManager.retrieveCookie("lastCity") === undefined) {
-        // write cookie
-        // lastCity = listItem.textContent;
-        // saveData();
-    // } else {
-        // read cookie
-        // lastCity = cookieManager.retrieveCookie("lastCity");
-        // cities.selectedOptions[0] = lastCity;
-        // lost = cookieManager.retrieveCookie("losts");
-    // }
+    console.log("in onChanged: " + listItem);
 
-    let citySplit = listItem.textContent.split(",");
+    // reference to option in cities
+    listItem = cities.selectedOptions[0];
+    console.log("in onChanged textContent: " + listItem.textContent);
+    lastCity = listItem.textContent;
+    listItem = lastCity;
+    saveData();
+
+
+    let citySplit = listItem.split(",");
     // console.log(listItem.textContent);
-    // console.log(citySplit[0]);
+    console.log(citySplit[0]);
     retrieveScript = `http://api.openweathermap.org/data/2.5/weather?q=${citySplit[0]},CA&mode=xml&appid=6761afb1468ce2fec9c0b3c67ee37aa2`;
-    // document.getElementsByClassName("weather__sun__rise")[0].innerHTML.fontcolor("rgb(183, 185, 214)");
+    document.getElementById("grey").style.display = "block";
 
     getXMLData(retrieveScript, onCityDataLoaded, onCityNotFound);
 }
@@ -224,24 +205,10 @@ function main() {
     // construct cookieManager
     cookieManager = new CookieManager();
 
-    if (lastCity != null) {
+    if (cookieManager.retrieveCookie("lastCity") != undefined) {
         listItem = cookieManager.retrieveCookie("lastCity");
-        console.log(listItem);
-        retrieved = true;
-    } else {
-        retrieved = false;
-    }
-
-    // // get score data from cookie if it exists
-    // if (cookieManager.retrieveCookie("lastCity") === undefined) {
-    //     // write cookie
-    //     lastCity = "";
-    //     saveData();
-    // } else {
-    //     // read cookie
-    //     lastCity = cookieManager.retrieveCookie("lastCity");
-    //     // lost = cookieManager.retrieveCookie("losts");
-    // }
+        console.log("after retrieve: " + listItem);
+     }
 
     // setup references to controls
     retrieveScript = "cities.xml";

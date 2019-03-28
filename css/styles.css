@@ -54,7 +54,8 @@ body {
     .info__cities__menu:focus {
       outline: 0; }
     .info__cities__menu option {
-      color: #000000; }
+      color: #000000;
+      background-color: lightgray; }
   .info__cities #cities {
     background-color: #2f2fd4;
     color: white;
