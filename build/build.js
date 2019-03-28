@@ -463,10 +463,12 @@ function displayData() {
 
 // ------------------------------------------------------- event handlers
 function onCityDataLoaded(result) {
+
     // grab the XML response
     xmlObject = result;
     loadingOverlay.style.display = "none";
     document.getElementsByClassName("weather")[0].style.display = "flex";
+    document.querySelector(".weather").style.opacity = 1;
 
     getWeatherData();
     convertWeatherData();
@@ -480,12 +482,12 @@ function onLoaded(result) {
     citiesCount = xmlObject.getElementsByTagName("city").length;
     if (citiesCount > 0) {
         populateMe();
-        // if (cookieManager.retrieveCookie("lastCity") === undefined) {
-        //     saveData();            
-        // } else {
-        //     lastCity = cookieManager.retrieveCookie("lastCity");
-        //     option.text = lastCity;
-        // }
+        listItem = cookieManager.retrieveCookie("lastCity");
+        if (listItem != undefined) {
+            cities.value = listItem;
+            console.log("after retrieve: " + listItem);
+        }
+
         onChanged();
         loadingOverlay.style.display = "none";
     }
@@ -514,7 +516,7 @@ function onChanged(e) {
     // console.log(listItem.textContent);
     console.log(citySplit[0]);
     retrieveScript = "http://api.openweathermap.org/data/2.5/weather?q=" + citySplit[0] + ",CA&mode=xml&appid=6761afb1468ce2fec9c0b3c67ee37aa2";
-    document.getElementById("grey").style.display = "block";
+    document.querySelector(".weather").style.opacity = 0.2;
 
     (0, _Toolkit.getXMLData)(retrieveScript, onCityDataLoaded, onCityNotFound);
 }
@@ -530,11 +532,6 @@ function main() {
 
     // construct cookieManager
     cookieManager = new _CookieManager.CookieManager();
-
-    if (cookieManager.retrieveCookie("lastCity") != undefined) {
-        listItem = cookieManager.retrieveCookie("lastCity");
-        console.log("after retrieve: " + listItem);
-    }
 
     // setup references to controls
     retrieveScript = "cities.xml";

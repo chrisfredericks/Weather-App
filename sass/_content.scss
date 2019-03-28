@@ -1,21 +1,3 @@
-// #grey {
-//     display:none;
-//     color: lightgray;
-//     background:#000;
-//     opacity:0.8;
-//     // position:fixed;
-//     // top:0;
-//     // left:0;
-//     width:100%;
-//     height:100%;
-//     z-index:100500;
-//     // MsFilter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);--IE
-//     // filter: alpha(opacity=50);
-//     // MozOpacity: 0.5;--FF
-//     // KhtmlOpacity: 0.5;
-// }
-
-
 .weather {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-size: $base-font-size * 2;
@@ -134,78 +116,11 @@
 @media #{$phone} {
 
     .weather {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        font-size: $base-font-size * 2;
         @include display-flex;
         flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content:flex-start;
-    }
-}
-
-// .view__selected {
-//     @include display-flex();
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     justify-content:flex-start;
-// }
-
-// .view__radios {
-//     font-size:$base-font-size * 1.25;
-//     margin-bottom:15px;
-// }
-
-// .view__about {
-//     display:none;
-//     color:mix($background-color, $font-color);
-//     font-size: $base-font-size;
-//     max-width:710px;
-//     margin-bottom:20px;
-// }
-
-.content {
-
-    &__title {
-        @extend .header--title;
-        padding-bottom: 10px;
-        font-size:$base-font-size * 2;
     }
 
-    &__description {
-        padding-bottom: 10px;
-        max-width:500px;
+    .info__cities option {
+        font-size: 3.5vw;
     }
-
-    &__link {
-        color:$font-color;
-        text-decoration: none;
-        font-size:$base-font-size * 1.25;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    &__iconset {
-        padding-top: 10px;
-    }
-
-    &__icon {
-        border-radius:10px;
-        margin-right: 5px;
-    }
-
-    &__icon--shrink {
-        border-radius:5px;
-        width: 50px;
-    }
-
-    &--viewall {
-        @include display-flex();
-        flex-direction: row;
-        flex-wrap: nowrap;
-        margin-bottom:20px;
-        & > div {
-            margin-right:10px;
-        }
-    }    
 }

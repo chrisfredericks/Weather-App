@@ -21,14 +21,15 @@
       }
       & option {
         color: #000000;
-        background-color: lightgray
+        background-color: lightgray;
+        font-size: $base-font-size;
       }
     }
   
     #cities {
       background-color: rgb(47, 47, 212);
       color: white;
-      width: 450px;
+      width: 400px;
     }
   }
 

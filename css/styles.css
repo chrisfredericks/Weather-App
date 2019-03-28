@@ -28,7 +28,7 @@ body {
   grid-column: span 1;
   font-size: 48px;
   color: #8080c5; }
-  .header--title, .content__title {
+  .header--title {
     font-family: "Arvo", sans-serif;
     font-weight: bold; }
   .header--subtitle {
@@ -55,11 +55,12 @@ body {
       outline: 0; }
     .info__cities__menu option {
       color: #000000;
-      background-color: lightgray; }
+      background-color: lightgray;
+      font-size: 16px; }
   .info__cities #cities {
     background-color: #2f2fd4;
     color: white;
-    width: 450px; }
+    width: 400px; }
 
 .info__icon {
   color: blue;
@@ -163,51 +164,11 @@ body {
 
 @media screen and (max-width: 640px) {
   .weather {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    font-size: 32px;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start; } }
-
-.content__title {
-  padding-bottom: 10px;
-  font-size: 32px; }
-
-.content__description {
-  padding-bottom: 10px;
-  max-width: 500px; }
-
-.content__link {
-  color: darkblue;
-  text-decoration: none;
-  font-size: 20px; }
-  .content__link:hover {
-    text-decoration: underline; }
-
-.content__iconset {
-  padding-top: 10px; }
-
-.content__icon {
-  border-radius: 10px;
-  margin-right: 5px; }
-
-.content__icon--shrink {
-  border-radius: 5px;
-  width: 50px; }
-
-.content--viewall {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  margin-bottom: 20px; }
-  .content--viewall > div {
-    margin-right: 10px; }
+    flex-direction: column; }
+  .info__cities option {
+    font-size: 3.5vw; } }
