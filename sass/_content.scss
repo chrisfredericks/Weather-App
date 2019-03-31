@@ -113,6 +113,11 @@
     }
 }
 
+.credits {
+    font-size: $base-font-size * 1.25;
+    font-weight: bold;
+}
+
 @media #{$phone} {
 
     .weather {
@@ -120,7 +125,47 @@
         flex-direction: column;
     }
 
-    .info__cities option {
+    .info {
+     
+        &__cities {
+        
+            &__menu {
+            font-size: 4.5vw;
+            }
+
+            & option {
+              font-size: 4vw;
+            }
+        }
+        
+        #cities {
+            width: 90vw;
+        }
+        
+      
+        &__icon {
+          font-size: $base-font-size * 4;
+        }
+      
+        &__conditions {
+          font-size: 8vw;
+        }
+      
+        &__city {
+          font-size: 7.5vw;
+        }
+    }
+
+
+    .header {
+        font-size:$base-font-size * 2; 
+      
+        &--subtitle {
+          font-size:$base-font-size;
+        }
+    }
+
+    .credits {
         font-size: 3.5vw;
     }
 }

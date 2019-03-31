@@ -48,7 +48,7 @@ body {
     display: inline-block;
     vertical-align: middle;
     padding: 7px 2px 5px 10px;
-    height: 70px;
+    height: 60px;
     border-radius: 10px;
     background: transparent; }
     .info__cities__menu:focus {
@@ -162,7 +162,11 @@ body {
       font-weight: bolder;
       padding-top: 10px; }
 
-@media screen and (max-width: 640px) {
+.credits {
+  font-size: 20px;
+  font-weight: bold; }
+
+@media screen and (max-width: 450px) {
   .weather {
     display: -webkit-box;
     display: -moz-box;
@@ -170,5 +174,21 @@ body {
     display: -webkit-flex;
     display: flex;
     flex-direction: column; }
+  .info__cities__menu {
+    font-size: 4.5vw; }
   .info__cities option {
+    font-size: 4vw; }
+  .info #cities {
+    width: 90vw; }
+  .info__icon {
+    font-size: 64px; }
+  .info__conditions {
+    font-size: 8vw; }
+  .info__city {
+    font-size: 7.5vw; }
+  .header {
+    font-size: 32px; }
+    .header--subtitle {
+      font-size: 16px; }
+  .credits {
     font-size: 3.5vw; } }
