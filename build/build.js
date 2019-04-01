@@ -463,28 +463,6 @@ function setWeatherIconColor() {
         console.log(code);
         document.querySelector(".info__icon").style.color = "gray";
     }
-    // switch (code) {
-    //     case 801:
-    //     document.querySelector(".info__icon").style.color = "lightgray";
-    //     break;
-    // case 1:
-    //   day = "Monday";
-    //   break;
-    // case 2:
-    //    day = "Tuesday";
-    //   break;
-    // case 3:
-    //   day = "Wednesday";
-    //   break;
-    // case 4:
-    //   day = "Thursday";
-    //   break;
-    // case 5:
-    //   day = "Friday";
-    //   break;
-    // case 6:
-    //   day = "Saturday";
-    //   }
 }
 
 function displayData() {
@@ -523,7 +501,9 @@ function onCityDataLoaded(result) {
     document.getElementsByClassName("info__conditions")[0].style.display = "block";
     document.getElementsByClassName("credits")[0].style.display = "block";
     document.getElementsByClassName("weather")[0].style.display = "flex";
-    document.querySelector(".main").style.opacity = 1;
+    document.querySelector(".info__icon").style.opacity = 1;
+    document.querySelector(".info__conditions").style.opacity = 1;
+    document.querySelector(".weather").style.opacity = 1;
 
     getWeatherData();
     convertWeatherData();
@@ -552,7 +532,9 @@ function onLoaded(result) {
 }
 
 function onCityNotFound(e) {
-    document.querySelector(".main").style.opacity = 1;
+    document.querySelector(".info__icon").style.opacity = 1;
+    document.querySelector(".info__conditions").style.opacity = 1;
+    document.querySelector(".weather").style.opacity = 1;
     document.getElementsByClassName("info__city")[0].innerHTML = "City not found".fontcolor("red").italics();
     document.getElementsByClassName("info__icon")[0].style.display = "none";
     document.getElementsByClassName("info__conditions")[0].style.display = "none";
@@ -575,7 +557,9 @@ function onChanged(e) {
     // split out the city from the province
     var citySplit = listItem.split(",");
     retrieveScript = "http://api.openweathermap.org/data/2.5/weather?q=" + citySplit[0] + ",CA&mode=xml&appid=6761afb1468ce2fec9c0b3c67ee37aa2";
-    document.querySelector(".main").style.opacity = 0.2;
+    document.querySelector(".info__icon").style.opacity = 0.2;
+    document.querySelector(".info__conditions").style.opacity = 0.2;
+    document.querySelector(".weather").style.opacity = 0.2;
     document.querySelector(".info__icon").style.color = "blue";
 
     (0, _Toolkit.getXMLData)(retrieveScript, onCityDataLoaded, onCityNotFound);
@@ -588,7 +572,9 @@ function main() {
 
     document.getElementsByClassName("weather")[0].style.display = "none";
     document.getElementsByClassName("credits")[0].style.display = "none";
-    document.querySelector(".main").style.opacity = 0.2;
+    document.querySelector(".info__icon").style.opacity = 0.2;
+    document.querySelector(".info__conditions").style.opacity = 0.2;
+    document.querySelector(".weather").style.opacity = 0.2;
 
     // setup references to controls
     retrieveScript = "cities.xml";
