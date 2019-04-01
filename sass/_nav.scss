@@ -1,4 +1,10 @@
 .info {
+  padding: 10px;
+  border: solid;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 5px 5px;
+  background-color: rgb(126, 213, 241);
      
   &__cities {
     padding-right:20px;
@@ -37,12 +43,12 @@
   }
 
   &__conditions {
-    color: blue;
+    color: black;
     font-size: $base-font-size * 4;
   }
 
   &__city {
-    color: black;
+    color: $font-color;
     font-size: $base-font-size * 2.5;
     font-weight: bold;
   }

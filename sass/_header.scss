@@ -3,7 +3,8 @@
   grid-column: span 1;
 
   font-size:$base-font-size * 3; 
-  color: mix($background-color, $font-color);
+  // color: mix($background-color, $font-color);
+  color: blue;
  
   &--title {
     font-family: "Arvo", sans-serif;

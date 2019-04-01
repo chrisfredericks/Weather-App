@@ -1,7 +1,7 @@
 .weather {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-size: $base-font-size * 2;
-    // display: block;
+    // display: none;
     @include display-flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -14,16 +14,14 @@
         padding-right: 20px;
 
         &__rise {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
         
         &__set {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
     }
@@ -35,23 +33,20 @@
         padding-right: 20px;
             
         &__current {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
             
         &__low {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
             
         &__high {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
     }
@@ -63,9 +58,8 @@
         padding-right: 20px;
                 
         &__value {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
     }
@@ -77,9 +71,8 @@
         padding-right: 20px;
 
         &__value {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
     }
@@ -91,23 +84,20 @@
         padding-right: 20px;
 
         &__direction {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
 
         &__strength {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
 
         &__speed {
-            color: mix($background-color, $font-color);
+            color: $font-color;
             font-size: $base-font-size * 1.5;
-            font-weight: bolder;
             padding-top: 10px;
         }
     }
@@ -130,7 +120,7 @@
         &__cities {
         
             &__menu {
-            font-size: 4.5vw;
+            font-size: 3.25vw;
             }
 
             & option {
@@ -139,7 +129,7 @@
         }
         
         #cities {
-            width: 90vw;
+            width: 70vw;
         }
         
       

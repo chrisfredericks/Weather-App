@@ -330,27 +330,23 @@ var _Toolkit = require("./Toolkit.js");
 var _CookieManager = require("./CookieManager");
 
 // cookieManager object
-
-// -------------------------------- challenge solution
 var cookieManager = null;
-// --------------------------------------------------
-// import $ from "jquery";
 
-var lastCity = null;
-var retrieved = 0;
-var retrieveScript = void 0;
 // xmlHttpRequest object for carrying out AJAX
-var xmlhttp = void 0;
 var xmlObject = void 0;
+
 // number of cities in XML
 var citiesCount = 0;
 
+var lastCity = null;
+var retrieveScript = void 0;
 var cities = void 0;
 var option = void 0;
 var listItem = void 0;
 var loadingOverlay = void 0;
 
 // weather variables
+var code = void 0;
 var conditions = void 0;
 var sunrise = void 0;
 var sunset = void 0;
@@ -363,9 +359,6 @@ var windDirectionCode = void 0;
 var windDirection = void 0;
 var windStrength = void 0;
 var windSpeed = void 0;
-
-// let hours;
-// let minutes;
 
 // construct Spinner object (spin.js) and add to loading-overlay <div> http://spin.js.org/
 var spinner = new _spin.Spinner({ color: '#FFFFFF', lines: 12 }).spin(document.getElementsByClassName("loading-overlay")[0]);
@@ -388,6 +381,8 @@ function populateMe() {
 }
 
 function getWeatherData() {
+
+    // get all the weather variables
     conditions = xmlObject.getElementsByTagName("weather")[0].getAttribute("value");
     sunrise = xmlObject.getElementsByTagName("sun")[0].getAttribute("rise");
     sunset = xmlObject.getElementsByTagName("sun")[0].getAttribute("set");
@@ -400,18 +395,20 @@ function getWeatherData() {
     windDirection = xmlObject.getElementsByTagName("direction")[0].getAttribute("name");
     windSpeed = xmlObject.getElementsByTagName("speed")[0].getAttribute("value");
     windStrength = xmlObject.getElementsByTagName("speed")[0].getAttribute("name");
-    // console.log(windDirectionCode.toLowerCase());
 }
 
 function convertWeatherData() {
+
+    // construct new date objects with local time
     sunrise = new Date(sunrise + "Z");
     sunset = new Date(sunset + "Z");
+
+    // convert dates to display correctly
     var month = sunrise.getMonth() + 1;
     if (month < 10) {
         month = "0" + month;
     }
     var day = sunrise.getDate();
-    // console.log(day);
     if (day < 10) {
         day = "0" + day;
     }
@@ -437,14 +434,63 @@ function convertWeatherData() {
     }
     year = sunset.getFullYear();
     sunset = month + "/" + day + "/" + year + "  " + hours + ":" + minutes;
+
+    // convert from Kelvin to Celsius
     currentTemp -= 273.15;
     lowTemp -= 273.15;
     highTemp -= 273.15;
 }
 
+function setWeatherIconColor() {
+    console.log(code);
+    if (code == 800) {
+        console.log(code);
+        document.querySelector(".info__icon").style.color = "yellow";
+    }
+    if (code > 800 && code <= 804) {
+        console.log(code);
+        document.querySelector(".info__icon").style.color = "gray";
+    }
+    if (code.substring(0, 1) == 6) {
+        console.log(code);
+        document.querySelector(".info__icon").style.color = "white";
+    }
+    if (code.substring(0, 1) == 2) {
+        console.log(code);
+        document.querySelector(".info__icon").style.color = "darkgray";
+    }
+    if (code == 741) {
+        console.log(code);
+        document.querySelector(".info__icon").style.color = "gray";
+    }
+    // switch (code) {
+    //     case 801:
+    //     document.querySelector(".info__icon").style.color = "lightgray";
+    //     break;
+    // case 1:
+    //   day = "Monday";
+    //   break;
+    // case 2:
+    //    day = "Tuesday";
+    //   break;
+    // case 3:
+    //   day = "Wednesday";
+    //   break;
+    // case 4:
+    //   day = "Thursday";
+    //   break;
+    // case 5:
+    //   day = "Friday";
+    //   break;
+    // case 6:
+    //   day = "Saturday";
+    //   }
+}
+
 function displayData() {
 
-    var code = xmlObject.getElementsByTagName("weather")[0].getAttribute("number");
+    code = xmlObject.getElementsByTagName("weather")[0].getAttribute("number");
+    setWeatherIconColor();
     document.getElementsByClassName("info__icon")[0].innerHTML = "<i class=\"wi wi-owm-" + code + "\"></i>";
     document.getElementsByClassName("info__conditions")[0].innerHTML = conditions;
     document.getElementsByClassName("info__city")[0].innerHTML = listItem;
@@ -461,6 +507,12 @@ function displayData() {
     document.getElementsByClassName("weather__wind__speed")[0].innerHTML = windSpeed + " km/h speed";
 }
 
+function saveData() {
+
+    // write last city searched to cookie so it knows where to start in the future
+    cookieManager.setupCookie("lastCity", lastCity, 365);
+}
+
 // ------------------------------------------------------- event handlers
 function onCityDataLoaded(result) {
 
@@ -469,6 +521,7 @@ function onCityDataLoaded(result) {
     loadingOverlay.style.display = "none";
     document.getElementsByClassName("info__icon")[0].style.display = "block";
     document.getElementsByClassName("info__conditions")[0].style.display = "block";
+    document.getElementsByClassName("credits")[0].style.display = "block";
     document.getElementsByClassName("weather")[0].style.display = "flex";
     document.querySelector(".main").style.opacity = 1;
 
@@ -484,10 +537,13 @@ function onLoaded(result) {
     citiesCount = xmlObject.getElementsByTagName("city").length;
     if (citiesCount > 0) {
         populateMe();
+
+        // retrieve last city loaded
         listItem = cookieManager.retrieveCookie("lastCity");
+
+        // set city to last city loaded if not undefined
         if (listItem != undefined) {
             cities.value = listItem;
-            console.log("after retrieve: " + listItem);
         }
 
         onChanged();
@@ -496,10 +552,12 @@ function onLoaded(result) {
 }
 
 function onCityNotFound(e) {
+    document.querySelector(".main").style.opacity = 1;
     document.getElementsByClassName("info__city")[0].innerHTML = "City not found".fontcolor("red").italics();
     document.getElementsByClassName("info__icon")[0].style.display = "none";
     document.getElementsByClassName("info__conditions")[0].style.display = "none";
     document.getElementsByClassName("weather")[0].style.display = "none";
+    document.getElementsByClassName("credits")[0].style.display = "none";
 }
 
 function onError(e) {
@@ -507,35 +565,30 @@ function onError(e) {
 }
 
 function onChanged(e) {
-    console.log("in onChanged: " + listItem);
 
     // reference to option in cities
     listItem = cities.selectedOptions[0];
-    console.log("in onChanged textContent: " + listItem.textContent);
     lastCity = listItem.textContent;
     listItem = lastCity;
     saveData();
 
+    // split out the city from the province
     var citySplit = listItem.split(",");
-    // console.log(listItem.textContent);
-    console.log(citySplit[0]);
     retrieveScript = "http://api.openweathermap.org/data/2.5/weather?q=" + citySplit[0] + ",CA&mode=xml&appid=6761afb1468ce2fec9c0b3c67ee37aa2";
     document.querySelector(".main").style.opacity = 0.2;
+    document.querySelector(".info__icon").style.color = "blue";
 
     (0, _Toolkit.getXMLData)(retrieveScript, onCityDataLoaded, onCityNotFound);
 }
 
-function saveData() {
-    // write current won and lost count to cookie for future games
-    cookieManager.setupCookie("lastCity", lastCity, 365);
-    // cookieManager.setupCookie("losts", lost, 365);
-}
-
-// ------------------------------------------------------- private methods
 function main() {
 
     // construct cookieManager
     cookieManager = new _CookieManager.CookieManager();
+
+    document.getElementsByClassName("weather")[0].style.display = "none";
+    document.getElementsByClassName("credits")[0].style.display = "none";
+    document.querySelector(".main").style.opacity = 0.2;
 
     // setup references to controls
     retrieveScript = "cities.xml";
