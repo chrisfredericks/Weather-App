@@ -175,10 +175,12 @@ function onCityDataLoaded(result) {
     loadingOverlay.style.display = "none";
     document.getElementsByClassName("info__icon")[0].style.display = "block";
     document.getElementsByClassName("info__conditions")[0].style.display = "block";
+    document.getElementsByClassName("info__city")[0].style.display = "block";
     document.getElementsByClassName("credits")[0].style.display = "block";
     document.getElementsByClassName("weather")[0].style.display = "flex";
     document.querySelector(".info__icon").style.opacity = 1;
     document.querySelector(".info__conditions").style.opacity = 1;
+    document.querySelector(".info__city").style.opacity = 1;
     document.querySelector(".weather").style.opacity = 1;
 
     getWeatherData();
@@ -210,6 +212,7 @@ function onLoaded(result) {
 function onCityNotFound(e) {
     document.querySelector(".info__icon").style.opacity = 1;
     document.querySelector(".info__conditions").style.opacity = 1;
+    document.querySelector(".info__city").style.opacity = 1;
     document.querySelector(".weather").style.opacity = 1;
     document.getElementsByClassName("info__city")[0].innerHTML = "City not found".fontcolor("red").italics();
     document.getElementsByClassName("info__icon")[0].style.display = "none";
@@ -236,6 +239,7 @@ function onChanged(e) {
     document.querySelector(".info__icon").style.opacity = 0.2;
     document.querySelector(".info__conditions").style.opacity = 0.2;
     document.querySelector(".weather").style.opacity = 0.2;
+    document.querySelector(".info__city").style.opacity = 0.2;
     document.querySelector(".info__icon").style.color = "blue";
 
     getXMLData(retrieveScript, onCityDataLoaded, onCityNotFound);
@@ -250,6 +254,7 @@ function main() {
     document.getElementsByClassName("credits")[0].style.display = "none";
     document.querySelector(".info__icon").style.opacity = 0.2;
     document.querySelector(".info__conditions").style.opacity = 0.2;
+    document.querySelector(".info__city").style.opacity = 0.2;
     document.querySelector(".weather").style.opacity = 0.2;
 
     // setup references to controls
