@@ -446,25 +446,19 @@ function convertWeatherData() {
 }
 
 function setWeatherIconColor() {
-    console.log(code);
     if (code == 800) {
-        console.log(code);
         document.querySelector(".info__icon").style.color = "yellow";
     }
     if (code > 800 && code <= 804) {
-        console.log(code);
         document.querySelector(".info__icon").style.color = "gray";
     }
     if (code.substring(0, 1) == 6) {
-        console.log(code);
         document.querySelector(".info__icon").style.color = "white";
     }
     if (code.substring(0, 1) == 2) {
-        console.log(code);
         document.querySelector(".info__icon").style.color = "darkgray";
     }
     if (code == 741) {
-        console.log(code);
         document.querySelector(".info__icon").style.color = "gray";
     }
 }
@@ -490,17 +484,14 @@ function displayData() {
 }
 
 function saveData() {
-
     // write last city searched to cookie so it knows where to start in the future
     cookieManager.setupCookie("lastCity", lastCity, 365);
 }
 
 // ------------------------------------------------------- event handlers
 function onCityDataLoaded(result) {
-
     // grab the XML response
     xmlObject = result;
-    console.log(xmlObject);
     loadingOverlay.style.display = "none";
     document.getElementsByClassName("info__icon")[0].style.display = "block";
     document.getElementsByClassName("info__conditions")[0].style.display = "block";
@@ -539,6 +530,7 @@ function onLoaded(result) {
 }
 
 function onCityNotFound(e) {
+    console.log("*** Error has occured during AJAX data retrieval");
     document.querySelector(".info__icon").style.opacity = 1;
     document.querySelector(".info__conditions").style.opacity = 1;
     document.querySelector(".info__city").style.opacity = 1;
@@ -555,7 +547,6 @@ function onError(e) {
 }
 
 function onChanged(e) {
-
     // reference to option in cities
     listItem = cities.selectedOptions[0];
     lastCity = listItem.textContent;
@@ -564,18 +555,22 @@ function onChanged(e) {
 
     // split out the city from the province
     var citySplit = listItem.split(",");
+
+    // create the retrieve script for the selected city
     retrieveScript = "http://api.openweathermap.org/data/2.5/weather?q=" + citySplit[0] + ",CA&mode=xml&appid=6761afb1468ce2fec9c0b3c67ee37aa2";
+
+    // grey out the weather data
     document.querySelector(".info__icon").style.opacity = 0.2;
     document.querySelector(".info__conditions").style.opacity = 0.2;
     document.querySelector(".weather").style.opacity = 0.2;
     document.querySelector(".info__city").style.opacity = 0.2;
+
     document.querySelector(".info__icon").style.color = "blue";
 
     (0, _Toolkit.getXMLData)(retrieveScript, onCityDataLoaded, onCityNotFound);
 }
 
 function main() {
-
     // construct cookieManager
     cookieManager = new _CookieManager.CookieManager();
 
