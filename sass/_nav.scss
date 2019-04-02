@@ -4,7 +4,7 @@
   width: 90%;
   max-width: 1500px;
   border-radius: 10px;
-  box-shadow: 5px 5px;
+  box-shadow: 5px 5px rgb(41, 41, 114);
   background-color: rgb(167, 199, 209);
      
   &__cities {
@@ -14,7 +14,7 @@
     &__menu {
       font-family:$font-faces;
       font-size:$base-font-size * 1.25;
-      box-shadow: 5px 5px rgb(47, 47, 212);
+      box-shadow: 5px 5px rgb(20, 20, 77);
       display:inline-block;
       vertical-align:middle;
       padding:7px 2px 5px 10px;
@@ -32,7 +32,7 @@
     }
   
     #cities {
-      background-color: rgb(47, 47, 212);
+      background-color: rgb(41, 41, 114);
       color: white;
       width: 400px;
     }
@@ -49,7 +49,7 @@
   }
 
   &__city {
-    color: $font-color;
+    color: rgb(41, 41, 114);
     font-size: $base-font-size * 2.5;
     font-weight: bold;
   }

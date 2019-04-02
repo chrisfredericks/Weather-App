@@ -3,8 +3,7 @@ body {
   background-color: white;
   color: darkblue;
   font-family: arial, verdana, sans-serif;
-  font-size: 16px;
-  padding: 10px; }
+  font-size: 16px; }
 
 .main {
   display: grid;
@@ -44,7 +43,7 @@ body {
   width: 90%;
   max-width: 1500px;
   border-radius: 10px;
-  box-shadow: 5px 5px;
+  box-shadow: 5px 5px #292972;
   background-color: #a7c7d1; }
   .info__cities {
     padding-right: 20px;
@@ -52,7 +51,7 @@ body {
     .info__cities__menu {
       font-family: arial, verdana, sans-serif;
       font-size: 20px;
-      box-shadow: 5px 5px #2f2fd4;
+      box-shadow: 5px 5px #14144d;
       display: inline-block;
       vertical-align: middle;
       padding: 7px 2px 5px 10px;
@@ -66,7 +65,7 @@ body {
         background-color: lightgray;
         font-size: 16px; }
     .info__cities #cities {
-      background-color: #2f2fd4;
+      background-color: #292972;
       color: white;
       width: 400px; }
   .info__icon {
@@ -76,7 +75,7 @@ body {
     color: black;
     font-size: 64px; }
   .info__city {
-    color: darkblue;
+    color: #292972;
     font-size: 40px;
     font-weight: bold; }
 
@@ -99,7 +98,7 @@ body {
     padding: 10px;
     border: solid;
     border-radius: 10px;
-    background-color: gray; }
+    background-color: #70d670; }
     .weather__sun__rise {
       color: darkblue;
       font-size: 24px;
@@ -115,7 +114,7 @@ body {
     padding: 10px;
     border: solid;
     border-radius: 10px;
-    background-color: gray; }
+    background-color: #70d670; }
     .weather__temp__current {
       color: darkblue;
       font-size: 24px;
@@ -135,7 +134,7 @@ body {
     padding: 10px;
     border: solid;
     border-radius: 10px;
-    background-color: gray; }
+    background-color: #70d670; }
     .weather__humidity__value {
       color: darkblue;
       font-size: 24px;
@@ -147,7 +146,7 @@ body {
     padding: 10px;
     border: solid;
     border-radius: 10px;
-    background-color: gray; }
+    background-color: #70d670; }
     .weather__pressure__value {
       color: darkblue;
       font-size: 24px;
@@ -159,7 +158,7 @@ body {
     padding: 10px;
     border: solid;
     border-radius: 10px;
-    background-color: gray; }
+    background-color: #70d670; }
     .weather__wind__direction {
       color: darkblue;
       font-size: 24px;
@@ -186,19 +185,32 @@ body {
     display: flex;
     flex-direction: column;
     margin-left: auto;
-    margin-right: auto; }
-  .info__cities__menu {
-    font-size: 3.25vw; }
-  .info__cities option {
-    font-size: 4vw; }
-  .info #cities {
-    width: 70vw; }
-  .info__icon {
-    font-size: 64px; }
-  .info__conditions {
-    font-size: 8vw; }
-  .info__city {
-    font-size: 7.5vw; }
+    margin-right: auto;
+    box-shadow: none; }
+    .weather__sun {
+      box-shadow: none; }
+    .weather__temp {
+      box-shadow: none; }
+    .weather__humidity {
+      box-shadow: none; }
+    .weather__pressure {
+      box-shadow: none; }
+    .weather__wind {
+      box-shadow: none; }
+  .info {
+    box-shadow: none; }
+    .info__cities__menu {
+      font-size: 4vw; }
+    .info__cities option {
+      font-size: 4vw; }
+    .info #cities {
+      width: 80vw; }
+    .info__icon {
+      font-size: 56px; }
+    .info__conditions {
+      font-size: 6vw; }
+    .info__city {
+      font-size: 5.5vw; }
   .header {
     font-size: 32px; }
     .header--subtitle {

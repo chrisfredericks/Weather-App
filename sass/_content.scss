@@ -17,7 +17,7 @@
         padding: 10px;
         border: solid;
         border-radius: 10px;
-        background-color: gray;
+        background-color: rgb(112, 214, 112);
 
         &__rise {
             color: $font-color;
@@ -41,7 +41,7 @@
         padding: 10px;
         border: solid;
         border-radius: 10px;
-        background-color: gray;
+        background-color: rgb(112, 214, 112);
             
         &__current {
             color: $font-color;
@@ -71,7 +71,7 @@
         padding: 10px;
         border: solid;
         border-radius: 10px;
-        background-color: gray;
+        background-color: rgb(112, 214, 112);
                 
         &__value {
             color: $font-color;
@@ -89,7 +89,7 @@
         padding: 10px;
         border: solid;
         border-radius: 10px;
-        background-color: gray;
+        background-color: rgb(112, 214, 112);
 
         &__value {
             color: $font-color;
@@ -107,7 +107,7 @@
         padding: 10px;
         border: solid;
         border-radius: 10px;
-        background-color: gray;
+        background-color: rgb(112, 214, 112);
 
         &__direction {
             color: $font-color;
@@ -141,14 +141,37 @@
         flex-direction: column;
         margin-left: auto;
         margin-right: auto;
+        box-shadow: none;
+
+        &__sun {
+            box-shadow: none;
+        }
+    
+        &__temp {
+            box-shadow: none;
+        }
+    
+        &__humidity {
+            box-shadow: none;
+        }
+        
+        &__pressure {
+            box-shadow: none;
+        }
+        
+        &__wind {
+            box-shadow: none;
+        }
     }
 
     .info {
      
+        box-shadow: none;
+        
         &__cities {
         
             &__menu {
-            font-size: 3.25vw;
+            font-size: 4vw;
             }
 
             & option {
@@ -157,20 +180,20 @@
         }
         
         #cities {
-            width: 70vw;
+            width: 80vw;
         }
         
       
         &__icon {
-          font-size: $base-font-size * 4;
+          font-size: $base-font-size * 3.5;
         }
       
         &__conditions {
-          font-size: 8vw;
+          font-size: 6vw;
         }
       
         &__city {
-          font-size: 7.5vw;
+          font-size: 5.5vw;
         }
     }
 

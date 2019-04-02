@@ -439,6 +439,10 @@ function convertWeatherData() {
     currentTemp -= 273.15;
     lowTemp -= 273.15;
     highTemp -= 273.15;
+
+    // convert from m/s to km/h
+    windSpeed *= 3.6;
+    windSpeed = windSpeed.toFixed(1);
 }
 
 function setWeatherIconColor() {
@@ -496,6 +500,7 @@ function onCityDataLoaded(result) {
 
     // grab the XML response
     xmlObject = result;
+    console.log(xmlObject);
     loadingOverlay.style.display = "none";
     document.getElementsByClassName("info__icon")[0].style.display = "block";
     document.getElementsByClassName("info__conditions")[0].style.display = "block";
